@@ -7,8 +7,8 @@ const sliderDotArr = [...sliderDots];
 
 let currentSlideIndex = 0;
 frame.addEventListener('click', (e) => {
-    switch (e.target.dataset.action) {
-        case 'scroll_left':
+    if (e.target.dataset.action) {
+        if (e.target.dataset.action === 'scroll_left') {
             if (currentSlideIndex !== 0) {
                 currentSlideIndex--;
                 slideArr[currentSlideIndex].scrollIntoView({
@@ -18,11 +18,34 @@ frame.addEventListener('click', (e) => {
                 sliderDotArr[targetDotIndex].style.background = '';
                 targetDotIndex = currentSlideIndex;
                 sliderDotArr[targetDotIndex].style.background = 'white';
-                break;
+                return;
             } else {
-                break;
+                return;
             }
-        case 'scroll_right':
+        }
+    }
+    if (!e.target.dataset.action) {
+        let navBtn = e.target.closest('button');
+        if (navBtn) {
+            if (navBtn.dataset.action === 'scroll_left') {
+                if (currentSlideIndex !== 0) {
+                    currentSlideIndex--;
+                    slideArr[currentSlideIndex].scrollIntoView({
+                        behavior: 'smooth',
+                        inline: 'center',
+                    });
+                    sliderDotArr[targetDotIndex].style.background = '';
+                    targetDotIndex = currentSlideIndex;
+                    sliderDotArr[targetDotIndex].style.background = 'white';
+                    return;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+    if (e.target.dataset.action) {
+        if (e.target.dataset.action === 'scroll_right') {
             if (currentSlideIndex !== 4) {
                 currentSlideIndex++;
                 slideArr[currentSlideIndex].scrollIntoView({
@@ -32,10 +55,31 @@ frame.addEventListener('click', (e) => {
                 sliderDotArr[targetDotIndex].style.background = '';
                 targetDotIndex = currentSlideIndex;
                 sliderDotArr[targetDotIndex].style.background = 'white';
-                break;
+                return;
             } else {
-                break;
+                return;
             }
+        }
+    }
+    if (!e.target.dataset.action) {
+        let navBtn = e.target.closest('button');
+        if (navBtn) {
+            if (navBtn.dataset.action === 'scroll_right') {
+                if (currentSlideIndex !== 4) {
+                    currentSlideIndex++;
+                    slideArr[currentSlideIndex].scrollIntoView({
+                        behavior: 'smooth',
+                        inline: 'center',
+                    });
+                    sliderDotArr[targetDotIndex].style.background = '';
+                    targetDotIndex = currentSlideIndex;
+                    sliderDotArr[targetDotIndex].style.background = 'white';
+                    return;
+                } else {
+                    return;
+                }
+            }
+        }
     }
 });
 
