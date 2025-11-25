@@ -1,4 +1,4 @@
-img{
+img {
     height: 100%;
     width: 100%;
 }
@@ -18,10 +18,14 @@ img{
     /* background-color: orange; */
     width: 600px;
     margin: 0 auto;
-    /* position: relative; */
-    overflow-x: scroll;
-    overflow-y: hidden;
-    
+    position: relative;
+    /* overflow-x: scroll; */
+    /* overflow: hidden; */
+}
+.slider_wrapper{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 .slider {
     height: 100%;
@@ -31,4 +35,19 @@ img{
     /* z-index: -1; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+#scroll_btn_left,
+#scroll_btn_right {
+    position: absolute;
+    top: 180px;
+    height: 40px;
+    background: rgb(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 5px;
+}
+#scroll_btn_left {
+    left: 10px;
+}
+#scroll_btn_right {
+    right: 10px;
 }
