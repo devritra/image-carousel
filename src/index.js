@@ -92,6 +92,7 @@ sliderDotsHolder.addEventListener('click', (e) => {
         targetDotIndex = sliderDotArr.findIndex((dot) => {
             return dot.dataset.action === e.target.dataset.action;
         });
+        currentSlideIndex = targetDotIndex;
         sliderDotArr[targetDotIndex].style.background = 'white';
         slideArr[targetDotIndex].scrollIntoView({
             behavior: 'smooth',
