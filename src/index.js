@@ -100,3 +100,25 @@ sliderDotsHolder.addEventListener('click', (e) => {
         });
     }
 });
+
+setInterval(() => {
+    if (currentSlideIndex === 4) {
+        currentSlideIndex = 0;
+        sliderDotArr[targetDotIndex].style.background = '';
+        targetDotIndex = 0;
+        sliderDotArr[targetDotIndex].style.background = 'white';
+        slideArr[targetDotIndex].scrollIntoView({
+            behavior: 'smooth',
+            inline: 'center',
+        });
+        return;
+    }
+    currentSlideIndex++;
+    sliderDotArr[targetDotIndex].style.background = '';
+    targetDotIndex++;
+    sliderDotArr[targetDotIndex].style.background = 'white';
+    slideArr[targetDotIndex].scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+    });
+}, 5000);
